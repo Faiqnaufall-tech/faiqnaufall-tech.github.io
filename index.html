@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>neotech — Cybersecurity & Backend</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <div class="logo">
+      <img class="logo-avatar" src="assets/Fotoprofil.png" alt="Avatar neotech" />
+      <span>Faiq Naufal Majid</span>
+    </div>
+    <nav class="nav">
+      <a href="#project" data-id="Project" data-en="Projects">Project</a>
+      <a href="#cert" data-id="Sertifikat" data-en="Certificates">Sertifikat</a>
+      <a href="#skills" data-id="Keahlian" data-en="Skills">Keahlian</a>
+      <a href="#feedback" data-id="Feedback" data-en="Feedback">Feedback</a>
+      <a href="#connect" data-id="Sosmed" data-en="Socials">Sosmed</a>
+    </nav>
+    <div class="header-actions">
+      <button class="action-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+        <span class="sr-only">Toggle theme</span>
+        <svg class="theme-icon theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path>
+        </svg>
+        <svg class="theme-icon theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5Z"></path>
+        </svg>
+      </button>
+      <div class="lang-toggle">
+        <button class="action-btn is-active" data-lang="id" type="button">ID</button>
+        <button class="action-btn" data-lang="en" type="button">EN</button>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-content reveal">
+        <div class="terminal-head">/home/Fallsec</div>
+        <p class="eyebrow typing" data-typing data-id="Welcome!" data-en="Welcome!">Welcome!</p>
+        <h1 data-id="Hello, I&#39;m Faiq Naufal Majid" data-en="Hello, I&#39;m Faiq Naufal Majid">Hello, I&#39;m Faiq Naufal Majid</h1>
+        <p class="lead" data-id="Saya sedang belajar mengenai backend , dan memperdalam cybersecurity" data-en="I am currently learning about backend, and deepening my knowledge of cybersecurity.">Saya sedang belajar mengenai backend , dan memperdalam cybersecurity</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#project" data-id="Lihat Project" data-en="View Project">Lihat Project</a>
+          <a class="btn ghost" href="#connect" data-id="Hubungi" data-en="Contact">Hubungi</a>
+        </div>
+        <div class="quick-stats">
+          <div>
+            <span class="stat">01</span>
+            <span class="label" data-id="Project aktif" data-en="Active project">Project aktif</span>
+          </div>
+          <div>
+            <span class="stat">Junior</span>
+            <span class="label" data-id="Cybersec &amp; backend" data-en="Cybersec &amp; backend">Cybersec & backend</span>
+          </div>
+          <div>
+            <span class="stat">Ready</span>
+            <span class="label" data-id="For collaboration" data-en="For collaboration">For collaboration</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <img src="assets/Foto2.png" alt="Foto aktivitas neotech" />
+        <div class="scanline"></div>
+      </div>
+    </section>
+
+    <section class="about reveal" id="about">
+      <div class="about-text">
+        <h2 data-id="Faiq Naufal Majid — Profil Singkat" data-en="Faiq Naufal Majid — Short Profile">Faiq Naufal Majid — Profil Singkat</h2>
+        <p data-id="Halo, aku Faiq dari Jogja. Aku suka ngoding sambil ngopi, dan kadang rehatnya main game. Sekarang lagi fokus di cybersecurity dan membangun project web." data-en="Hi, I’m Faiq from Jogja. I enjoy coding with coffee, and sometimes unwind with games. Currently focusing on cybersecurity and building web projects.">Halo, aku Faiq dari Jogja. Aku suka ngoding sambil ngopi, dan kadang rehatnya main game. Sekarang lagi fokus di cybersecurity dan membangun project web.</p>
+        <div class="about-tags">
+          <span data-id="Threat modeling" data-en="Threat modeling">Threat modeling</span>
+          <span data-id="Secure architecture" data-en="Secure architecture">Secure architecture</span>
+          <span data-id="Backend systems" data-en="Backend systems">Backend systems</span>
+          <span data-id="Incident-aware" data-en="Incident-aware">Incident-aware</span>
+        </div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div>
+          <h3 data-id="Focus" data-en="Focus">Focus</h3>
+          <p data-id="Security hardening, backend reliability, dan Pentesting" data-en="Security hardening, backend reliability, and pentesting.">Security hardening, backend reliability, dan Pentesting</p>
+        </div>
+        <div>
+          <h3 data-id="Open For" data-en="Open For">Open For</h3>
+          <p data-id="Kolaborasi project, freelance, atau riset security kecil." data-en="Project collaboration, freelance, or small security research.">Kolaborasi project, freelance, atau riset security kecil.</p>
+        </div>
+        <div class="about-status">
+          <span class="dot"></span>
+          <span data-id="Available for mutual &amp; collaboration" data-en="Available for mutual &amp; collaboration">Available for mutual & collaboration</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey reveal" id="journey">
+      <div class="section-head">
+        <h2 data-id="Riwayat Pendidikan &amp; Pengalaman" data-en="Education &amp; Experience">Riwayat Pendidikan & Pengalaman</h2>
+        <p data-id="Ringkas dan jelas tentang perjalanan pendidikan dan kerja." data-en="A concise view of learning and work journey.">Ringkas dan jelas tentang perjalanan pendidikan dan kerja.</p>
+      </div>
+      <div class="journey-grid">
+        <div class="journey-card">
+          <h3 data-id="Pendidikan" data-en="Education">Pendidikan</h3>
+          <div class="timeline">
+            <div class="timeline-item status-alumni">
+              <div>
+                <div class="edu-head">
+                  <img class="edu-logo" src="assets/smk.png" alt="SMKN 1 Saptosari" />
+                  <h4 data-id="SMKN 1 Saptosari/ TKJ" data-en="SMKN 1 Saptosari / Network Engineering">SMKN 1 Saptosari/ TKJ</h4>
+                </div>
+                <div class="edu-content">
+                  <span class="time" data-id="2021 — 2024" data-en="2021 — 2024">2021 — 2024</span>
+                  <p data-id="Saya lulusan SMKN 1 Yogyakarta jurusan Teknik Komputer dan Jaringan (TKJ). Selama sekolah, saya mempelajari dan mempraktikkan konfigurasi Mikrotik, crimping kabel LAN, penyambungan kabel fiber optic (FO), serta maintenance/troubleshooting jaringan. Saya juga menggunakan Cisco Packet Tracer untuk simulasi jaringan, dan mempelajari desain grafis sebagai skill pendukung dari mata pelajaran di sekolah." data-en="I graduated from SMKN 1 Yogyakarta, majoring in Computer and Network Engineering (TKJ). During my studies, I learned and practiced Mikrotik configuration, LAN cable crimping, fiber optic (FO) cable splicing, and network maintenance/troubleshooting. I also used Cisco Packet Tracer for network simulations and studied graphic design as a supporting skill for my school subjects.">Saya lulusan SMKN 1 Yogyakarta jurusan Teknik Komputer dan Jaringan (TKJ). Selama sekolah, saya mempelajari dan mempraktikkan konfigurasi Mikrotik, crimping kabel LAN, penyambungan kabel fiber optic (FO), serta maintenance/troubleshooting jaringan. Saya juga menggunakan Cisco Packet Tracer untuk simulasi jaringan, dan mempelajari desain grafis sebagai skill pendukung dari mata pelajaran di sekolah.</p>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item status-active">
+              <div>
+                <div class="edu-head">
+                  <img class="edu-logo" src="assets/university-of-amikom-yogyakarta-sleman-regency-logo-yogyakarta-d9367ffc271996ef75b89a231b713ef2(1).png" alt="Universitas Amikom Yogyakarta" />
+                  <h4 data-id="Universitas Amikom Jogja / Informatika" data-en="Universitas Amikom Jogja / Informatics">Universitas Amikom Jogja / Informatika</h4>
+                </div>
+                <div class="edu-content">
+                  <span class="time" data-id="2024 — Sekarang" data-en="2024 — Now">2024 — Sekarang</span>
+                  <p data-id="Saya di amikom mengambil Prodi Informatika, Berfokus pada Backend dan Network Engginer" data-en="I study Informatics at Amikom, focusing on backend and network engineering.">Saya di amikom mengambil Prodi Informatika, Berfokus pada Backend dan Network Engginer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="journey-card">
+          <h3 data-id="Pengalaman" data-en="Experience">Pengalaman</h3>
+          <div class="timeline">
+            <div class="timeline-item status-alumni">
+              <div>
+                <h4 data-id="PT Media Global Solusindo" data-en="PT Media Global Solusindo">PT Media Global Solusindo</h4>
+                <span class="time" data-id="2024" data-en="2024">2024</span>
+                <p data-id="Saya pernah Magang di Glosuindo selama 6 bulan Sebagai Teknisi Jaringan" data-en="I interned at Glosuindo for 6 months as a Network Technician.">Saya pernah Magang di Glosuindo selama 6 bulan Sebagai Teknisi Jaringan</p>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project reveal" id="project">
+      <div class="section-head">
+        <h2 data-id="Project" data-en="Projects">Project</h2>
+        <p data-id="Fokus pada satu produk yang rapi, aman, dan bisa didemokan." data-en="One clean, secure, demo-ready product.">Fokus pada satu produk yang rapi, aman, dan bisa didemokan.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-media">
+          <img src="assets/cover-project.png" alt="Cover project website penjualan kasir" />
+          <span class="project-tag" data-id="Live Demo" data-en="Live Demo">Live Demo</span>
+        </div>
+        <div class="project-info">
+          <h3 data-id="Website Penjualan Kasir" data-en="Cashier Sales Website">Website Penjualan Kasir</h3>
+          <p data-id="Project ini menampilkan hasil akhir website kasir yang siap didemokan dan dipresentasikan." data-en="This project showcases a cashier website ready for demo and presentation.">Project ini menampilkan hasil akhir website kasir yang siap didemokan dan dipresentasikan.</p>
+          <div class="project-meta">
+            <span data-id="Role: Fullstack" data-en="Role: Fullstack">Role: Fullstack</span>
+            <span data-id="Focus: Security &amp; Reliability" data-en="Focus: Security &amp; Reliability">Focus: Security & Reliability</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn primary" href="#" data-id="Lihat Demo" data-en="View Demo">Lihat Demo</a>
+            <a class="btn ghost" href="#" data-id="Detail Project" data-en="Project Details">Detail Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cert reveal" id="cert">
+      <div class="section-head">
+        <h2 data-id="Sertifikat" data-en="Certificates">Sertifikat</h2>
+        <p data-id="Placeholder dulu, cover akan kamu ganti nanti." data-en="Placeholder for now, you can replace covers later.">Placeholder dulu, cover akan kamu ganti nanti.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-cover" data-id="Cover Sertifikat 01" data-en="Certificate Cover 01">Cover Sertifikat 01</div>
+          <span class="cert-title" data-id="Certificate Title" data-en="Certificate Title">Certificate Title</span>
+          <span class="cert-year">2024</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-cover" data-id="Cover Sertifikat 02" data-en="Certificate Cover 02">Cover Sertifikat 02</div>
+          <span class="cert-title" data-id="Certificate Title" data-en="Certificate Title">Certificate Title</span>
+          <span class="cert-year">2025</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-cover" data-id="Cover Sertifikat 03" data-en="Certificate Cover 03">Cover Sertifikat 03</div>
+          <span class="cert-title" data-id="Certificate Title" data-en="Certificate Title">Certificate Title</span>
+          <span class="cert-year">2025</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills reveal" id="skills">
+      <div class="section-head">
+        <h2 data-id="Keahlian &amp; Tools" data-en="Skills &amp; Tools">Keahlian & Tools</h2>
+        <p data-id="Bahasa, tools, dan skill inti untuk security &amp; backend." data-en="Languages, tools, and core security/backend skills.">Bahasa, tools, dan skill inti untuk security & backend.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <h3 data-id="Bahasa Pemrograman" data-en="Programming Languages">Bahasa Pemrograman</h3>
+          <div class="level-list">
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+                  <span>HTML</span>
+                </div>
+                <span class="level-value">90%</span>
+              </div>
+              <div class="level-bar"><span style="width: 90%"></span></div>
+            </div>
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+                  <span>CSS</span>
+                </div>
+                <span class="level-value">85%</span>
+              </div>
+              <div class="level-bar"><span style="width: 85%"></span></div>
+            </div>
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                  <span>JavaScript</span>
+                </div>
+                <span class="level-value">80%</span>
+              </div>
+              <div class="level-bar"><span style="width: 80%"></span></div>
+            </div>
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
+                  <span>TypeScript</span>
+                </div>
+                <span class="level-value">70%</span>
+              </div>
+              <div class="level-bar"><span style="width: 70%"></span></div>
+            </div>
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+                  <span>Node.js</span>
+                </div>
+                <span class="level-value">75%</span>
+              </div>
+              <div class="level-bar"><span style="width: 75%"></span></div>
+            </div>
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                  <span>Python</span>
+                </div>
+                <span class="level-value">78%</span>
+              </div>
+              <div class="level-bar"><span style="width: 78%"></span></div>
+            </div>
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+                  <span>PHP</span>
+                </div>
+                <span class="level-value">72%</span>
+              </div>
+              <div class="level-bar"><span style="width: 72%"></span></div>
+            </div>
+            <div class="level-item">
+              <div class="level-head">
+                <div class="level-label">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+                  <span>C++</span>
+                </div>
+                <span class="level-value">60%</span>
+              </div>
+              <div class="level-bar"><span style="width: 60%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h3 data-id="Tools" data-en="Tools">Tools</h3>
+          <div class="icon-grid tools-grid">
+            <div class="icon-card tool wireshark">
+              <img src="https://cdn.simpleicons.org/wireshark/1679a7" alt="Wireshark" />
+              <span>Wireshark</span>
+            </div>
+            <div class="icon-card tool burpsuite">
+              <img src="https://cdn.simpleicons.org/burpsuite/ff6c37" alt="Burp Suite" />
+              <span>Burp Suite</span>
+            </div>
+            <div class="icon-card tool mikrotik">
+              <img src="https://cdn.simpleicons.org/mikrotik/c00000" alt="Mikrotik" />
+              <span>Mikrotik</span>
+            </div>
+            <div class="icon-card tool proxmox">
+              <img src="https://cdn.simpleicons.org/proxmox/e57000" alt="Proxmox" />
+              <span>Proxmox</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h3 data-id="Skill Utama" data-en="Core Skills">Skill Utama</h3>
+          <ul>
+            <li data-id="Security hardening &amp; basic pentest" data-en="Security hardening &amp; basic pentest">Security hardening & basic pentest</li>
+            <li data-id="Backend architecture &amp; API design" data-en="Backend architecture &amp; API design">Backend architecture & API design</li>
+            <li data-id="Database design &amp; optimization" data-en="Database design &amp; optimization">Database design & optimization</li>
+            <li data-id="Deployment &amp; monitoring readiness" data-en="Deployment &amp; monitoring readiness">Deployment & monitoring readiness</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="feedback reveal" id="feedback">
+      <div class="section-head">
+        <h2 data-id="Feedback" data-en="Feedback">Feedback</h2>
+        <p data-id="Isi feedback langsung di form ini. Setelah dikirim, saya akan tampilkan di portfolio." data-en="Send your feedback here. I will display it on the portfolio.">Isi feedback langsung di form ini. Setelah dikirim, saya akan tampilkan di portfolio.</p>
+      </div>
+      <div class="feedback-wrap">
+        <form class="feedback-form" action="/api/feedback" method="post">
+          <div class="form-grid">
+            <label>
+              <span data-id="Nama" data-en="Name">Nama</span>
+              <input type="text" name="name" placeholder="Nama kamu" data-id-placeholder="Nama kamu" data-en-placeholder="Your name" />
+            </label>
+            <label>
+              <span data-id="Email" data-en="Email">Email</span>
+              <input type="email" name="email" placeholder="email@domain.com" data-id-placeholder="email@domain.com" data-en-placeholder="email@domain.com" />
+            </label>
+          </div>
+          <label>
+            <span data-id="Feedback" data-en="Feedback">Feedback</span>
+            <textarea name="message" rows="5" placeholder="Tulis feedback kamu di sini" data-id-placeholder="Tulis feedback kamu di sini" data-en-placeholder="Write your feedback here"></textarea>
+          </label>
+          <button class="btn primary" type="submit" data-id="Kirim Feedback" data-en="Send Feedback">Kirim Feedback</button>
+        </form>
+        <div class="connect-card" id="connect">
+          <div>
+            <h2 data-id="Mutual Sosmed?" data-en="Connect?">Mutual Sosmed?</h2>
+            <p data-id="Yuk konek, diskusi proyek atau kolaborasi." data-en="Let’s connect and discuss projects or collaborations.">Yuk konek, diskusi proyek atau kolaborasi.</p>
+            <p class="social-text">
+              <a href="https://instagram.com/faiqqnaufall" target="_blank" rel="noreferrer">@Faiqnaufall</a>
+              <span> • </span>
+              <a href="https://github.com/FallSec-tech" target="_blank" rel="noreferrer">github.com/Fallsec-tech</a>
+            </p>
+          </div>
+          <div class="connect-actions">
+            <span class="terminal-hint">klik username untuk membuka</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span data-id="© 2026 FallSec. My Portofolio." data-en="© 2026 FallSec. My Portfolio.">© 2026 FallSec. My Portofolio.</span>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">↑</button>
+  <button class="scroll-down" aria-label="Scroll to next section">↓</button>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
