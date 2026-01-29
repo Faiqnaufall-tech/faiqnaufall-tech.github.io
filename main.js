@@ -7,6 +7,8 @@ const cursorRing = document.querySelector(".cursor-ring");
 const typingNodes = document.querySelectorAll("[data-typing]");
 const scrollTopBtn = document.querySelector(".scroll-top");
 const scrollDownBtn = document.querySelector(".scroll-down");
+const feedbackForm = document.querySelector(".feedback-form");
+const formStatus = document.querySelector(".form-status");
 
 if (toggle && nav) {
   toggle.addEventListener("click", () => {
@@ -183,6 +185,40 @@ if (scrollDownBtn) {
       next.scrollIntoView({ behavior: "smooth" });
     } else {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+  });
+}
+
+if (feedbackForm && formStatus) {
+  feedbackForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    formStatus.textContent = "";
+    formStatus.classList.remove("is-success", "is-error");
+
+    const formData = new FormData(feedbackForm);
+    try {
+      const response = await fetch(feedbackForm.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Gagal mengirim feedback.");
+      }
+
+      formStatus.textContent = "Feedback terkirim. Terima kasih!";
+      formStatus.classList.add("is-success");
+      feedbackForm.reset();
+    } catch (err) {
+      formStatus.textContent = "Gagal mengirim feedback. Coba lagi.";
+      formStatus.classList.add("is-error");
+      console.error(err);
     }
   });
 }
