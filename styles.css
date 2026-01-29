@@ -230,7 +230,7 @@ section {
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 50px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -1468,6 +1468,30 @@ body.theme-light .quick-stats div {
 @media (min-width: 901px) {
   .feedback-wrap {
     gap: 4px;
+  }
+
+  .hero {
+    align-items: start;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 12px;
+  }
+
+  .lead {
+    margin-bottom: 6px;
+  }
+
+  .hero-actions {
+    margin-top: -12px;
+  }
+
+  .hero-cta {
+    margin-bottom: 2px;
+  }
+
+  .quick-stats {
+    gap: 8px;
   }
 }
 
