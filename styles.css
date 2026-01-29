@@ -286,14 +286,18 @@ section {
 .lead {
   color: var(--muted);
   max-width: 540px;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
 }
 
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
+}
+
+.hero-actions {
+  grid-column: 1;
 }
 
 .btn {
@@ -1340,6 +1344,56 @@ body.theme-light .quick-stats div {
     font-size: 11px;
   }
 
+  .logo {
+    gap: 10px;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+  }
+
+  .logo-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    text-align: left;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .lead {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .hero-actions {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-cta {
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .quick-stats {
+    gap: 12px;
+  }
+
+  .quick-stats div {
+    flex: 1 1 46%;
+    min-width: 0;
+  }
+
   .edu-logo {
     width: 32px;
     height: 32px;
@@ -1361,6 +1415,15 @@ body.theme-light .quick-stats div {
     bottom: 72px;
     opacity: 1;
   }
+
+  body {
+    cursor: auto;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1372,6 +1435,33 @@ body.theme-light .quick-stats div {
 @media (max-width: 900px) {
   .feedback-wrap {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-media {
+    order: 2;
+    max-width: 320px;
+    justify-self: center;
+  }
+
+  .hero-actions {
+    order: 3;
+  }
+}
+
+@media (max-width: 720px) {
+  .logo span {
+    font-size: 11px;
+    white-space: nowrap;
   }
 }
 
