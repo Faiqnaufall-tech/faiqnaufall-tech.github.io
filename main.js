@@ -9,6 +9,7 @@ const scrollTopBtn = document.querySelector(".scroll-top");
 const scrollDownBtn = document.querySelector(".scroll-down");
 const feedbackForm = document.querySelector(".feedback-form");
 const formStatus = document.querySelector(".form-status");
+const certGroups = document.querySelectorAll(".cert-group");
 
 if (toggle && nav) {
   toggle.addEventListener("click", () => {
@@ -220,6 +221,51 @@ if (feedbackForm && formStatus) {
       formStatus.classList.add("is-error");
       console.error(err);
     }
+  });
+}
+
+if (certGroups.length) {
+  const updateDots = (track, dots) => {
+    const cards = track.querySelectorAll(".cert-card");
+    if (!cards.length || !dots.length) return;
+
+    const trackLeft = track.getBoundingClientRect().left;
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      const cardLeft = card.getBoundingClientRect().left;
+      const distance = Math.abs(cardLeft - trackLeft);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("is-active", index === closestIndex);
+    });
+  };
+
+  certGroups.forEach((group) => {
+    const track = group.querySelector(".cert-scroll");
+    const dots = Array.from(group.querySelectorAll(".cert-dots .dot"));
+    if (!track || !dots.length) return;
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateDots(track, dots);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    track.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => updateDots(track, dots));
+    updateDots(track, dots);
   });
 }
 
