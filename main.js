@@ -229,13 +229,15 @@ if (certGroups.length) {
     const cards = track.querySelectorAll(".cert-card");
     if (!cards.length || !dots.length) return;
 
-    const trackLeft = track.getBoundingClientRect().left;
+    const trackRect = track.getBoundingClientRect();
+    const trackCenter = trackRect.left + trackRect.width / 2;
     let closestIndex = 0;
     let closestDistance = Infinity;
 
     cards.forEach((card, index) => {
-      const cardLeft = card.getBoundingClientRect().left;
-      const distance = Math.abs(cardLeft - trackLeft);
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(cardCenter - trackCenter);
       if (distance < closestDistance) {
         closestDistance = distance;
         closestIndex = index;
@@ -245,12 +247,108 @@ if (certGroups.length) {
     dots.forEach((dot, index) => {
       dot.classList.toggle("is-active", index === closestIndex);
     });
+
+    cards.forEach((card, index) => {
+      card.classList.toggle("is-center", index === closestIndex);
+    });
+
+    track.dataset.activeIndex = String(closestIndex);
   };
 
+  const getClosestIndex = (track) => {
+    const cards = track.querySelectorAll(".cert-card");
+    if (!cards.length) return 0;
+    const trackRect = track.getBoundingClientRect();
+    const trackCenter = trackRect.left + trackRect.width / 2;
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+    cards.forEach((card, index) => {
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(cardCenter - trackCenter);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+    return closestIndex;
+  };
   certGroups.forEach((group) => {
     const track = group.querySelector(".cert-scroll");
     const dots = Array.from(group.querySelectorAll(".cert-dots .dot"));
+    const prevBtn = group.querySelector(".cert-btn.prev");
+    const nextBtn = group.querySelector(".cert-btn.next");
     if (!track || !dots.length) return;
+
+    const updateTrackPadding = () => {
+      const card = track.querySelector(".cert-card");
+      if (!card) return;
+      const trackWidth = track.clientWidth;
+      const cardWidth = card.getBoundingClientRect().width;
+      const pad = Math.max(0, (trackWidth - cardWidth) / 2);
+      track.style.paddingLeft = `${pad}px`;
+      track.style.paddingRight = `${pad}px`;
+      track.style.scrollPaddingLeft = `${pad}px`;
+      track.style.scrollPaddingRight = `${pad}px`;
+    };
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    const onPointerDown = (event) => {
+      isDown = true;
+      startX = event.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.classList.add("is-dragging");
+    };
+
+    const onPointerLeave = () => {
+      isDown = false;
+      track.classList.remove("is-dragging");
+    };
+
+    const onPointerUp = () => {
+      isDown = false;
+      track.classList.remove("is-dragging");
+    };
+
+    const onPointerMove = (event) => {
+      if (!isDown) return;
+      event.preventDefault();
+      const x = event.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      track.scrollLeft = scrollLeft - walk;
+    };
+
+    track.addEventListener("pointerdown", onPointerDown);
+    track.addEventListener("pointerleave", onPointerLeave);
+    track.addEventListener("pointerup", onPointerUp);
+    track.addEventListener("pointermove", onPointerMove);
+
+    const scrollToIndex = (index) => {
+      const cards = track.querySelectorAll(".cert-card");
+      const card = cards[index];
+      if (!card) return;
+      const trackWidth = track.clientWidth;
+      const cardWidth = card.getBoundingClientRect().width;
+      const offset = card.offsetLeft - (trackWidth - cardWidth) / 2;
+      track.scrollTo({ left: offset, behavior: "smooth" });
+    };
+
+    const scrollByCard = (direction) => {
+      const cards = track.querySelectorAll(".cert-card");
+      const current = getClosestIndex(track);
+      const nextIndex = Math.max(0, Math.min(cards.length - 1, current + direction));
+      scrollToIndex(nextIndex);
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => scrollByCard(-1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => scrollByCard(1));
+    }
 
     let ticking = false;
     const onScroll = () => {
@@ -264,7 +362,11 @@ if (certGroups.length) {
     };
 
     track.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", () => updateDots(track, dots));
+    window.addEventListener("resize", () => {
+      updateTrackPadding();
+      updateDots(track, dots);
+    });
+    updateTrackPadding();
     updateDots(track, dots);
   });
 }
