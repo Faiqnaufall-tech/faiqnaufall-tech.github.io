@@ -1715,8 +1715,8 @@ body.theme-light .quick-stats div {
 }
 
 .loader-inner img {
-  width: 72px;
-  height: 72px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   filter: drop-shadow(0 8px 18px rgba(0, 245, 160, 0.45));
   animation: loader-pulse 1.6s ease-in-out infinite;

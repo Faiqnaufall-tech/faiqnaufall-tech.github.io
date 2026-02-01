@@ -208,7 +208,9 @@ if (scrollDownBtn) {
 // Sembunyikan loader setelah halaman siap
 if (pageLoader) {
   window.addEventListener("load", () => {
-    pageLoader.classList.add("is-hidden");
+    setTimeout(() => {
+      pageLoader.classList.add("is-hidden");
+    }, 1200);
   });
 }
 
