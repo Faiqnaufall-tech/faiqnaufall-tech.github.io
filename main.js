@@ -11,6 +11,7 @@ const scrollDownBtn = document.querySelector(".scroll-down");
 const feedbackForm = document.querySelector(".feedback-form");
 const formStatus = document.querySelector(".form-status");
 const certGroups = document.querySelectorAll(".cert-group");
+const pageLoader = document.querySelector(".page-loader");
 
 // Toggle menu di mobile
 if (toggle && nav) {
@@ -201,6 +202,13 @@ if (scrollDownBtn) {
     } else {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     }
+  });
+}
+
+// Sembunyikan loader setelah halaman siap
+if (pageLoader) {
+  window.addEventListener("load", () => {
+    pageLoader.classList.add("is-hidden");
   });
 }
 
