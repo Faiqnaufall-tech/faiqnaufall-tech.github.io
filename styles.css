@@ -158,6 +158,65 @@ body::after {
   border: 1px solid var(--stroke);
   padding: 6px 10px;
   border-radius: 6px;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease,
+    border-color 0.28s ease, background 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-toggle-icon {
+  width: 18px;
+  height: 14px;
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+}
+
+.nav-toggle-line {
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  border-radius: 999px;
+  transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] {
+  transform: scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+  background: rgba(0, 245, 160, 0.08);
+  animation: toggle-pop 0.35s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-toggle::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(0, 245, 160, 0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.nav-toggle[aria-expanded="true"]::after {
+  opacity: 1;
+}
+
+@keyframes toggle-pop {
+  0% { transform: rotate(0deg) scale(0.96); }
+  60% { transform: rotate(14deg) scale(1.12); }
+  100% { transform: rotate(12deg) scale(1.08); }
 }
 
 .header-actions {
@@ -252,6 +311,12 @@ section {
   align-items: center;
 }
 
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .terminal-head {
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;
@@ -316,6 +381,23 @@ section {
 
 .hero-actions {
   grid-column: 1;
+}
+
+/* Gabungkan tombol + stats jadi satu group */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.hero-actions .hero-cta {
+  margin-bottom: 0;
+}
+
+.hero-actions .quick-stats {
+  margin-top: 0;
+  gap: 12px;
 }
 
 /* Tombol utama */
@@ -1573,17 +1655,29 @@ body.theme-light .btn.ghost {
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transform: translateY(-20px);
+    transform: translateY(-20px) scale(0.98);
+    transform-origin: top right;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.25s ease;
   }
 
   .nav.open {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    animation: nav-pop 0.32s ease;
   }
+
+  .nav.open a {
+    animation: nav-item 0.35s ease both;
+  }
+
+  .nav.open a:nth-child(1) { animation-delay: 0.04s; }
+  .nav.open a:nth-child(2) { animation-delay: 0.08s; }
+  .nav.open a:nth-child(3) { animation-delay: 0.12s; }
+  .nav.open a:nth-child(4) { animation-delay: 0.16s; }
+  .nav.open a:nth-child(5) { animation-delay: 0.2s; }
 
   .nav-toggle {
     display: inline-flex;
@@ -1592,6 +1686,28 @@ body.theme-light .btn.ghost {
   .connect-card {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@keyframes nav-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes nav-item {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -1891,6 +2007,10 @@ body.theme-light .loader-text {
     grid-template-columns: 1fr;
   }
 
+  .hero-left {
+    display: contents;
+  }
+
   .hero-content {
     order: 1;
   }
@@ -1903,6 +2023,17 @@ body.theme-light .loader-text {
 
   .hero-actions {
     order: 3;
+  }
+
+  .hero-cta {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 320px;
   }
 }
 
@@ -1931,11 +2062,13 @@ body.theme-light .loader-text {
   }
 
   .hero-actions {
-    margin-top: -12px;
+    margin-top: -16px;
+    gap: 8px;
+    align-self: start;
   }
 
   .hero-cta {
-    margin-bottom: 2px;
+    margin-bottom: 0;
   }
 
   .quick-stats {

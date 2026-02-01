@@ -53,44 +53,53 @@
       </div>
     </div>
     <!-- Tombol menu untuk mobile -->
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav-toggle-icon" aria-hidden="true">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </span>
+    </button>
   </header>
 
   <main>
     <!-- HERO: perkenalan + foto + CTA -->
     <section class="hero" id="top">
-      <!-- Teks perkenalan -->
-      <div class="hero-content reveal">
-        <div class="terminal-head">/home/Fallsec</div>
-        <p class="eyebrow typing" data-typing data-id="Welcome!" data-en="Welcome!">Welcome!</p>
-        <h1 data-id="Hello, I&#39;m Faiq Naufal Majid" data-en="Hello, I&#39;m Faiq Naufal Majid">Hello, I&#39;m Faiq Naufal Majid</h1>
-        <p class="lead" data-id="Saat ini aku fokus ngulik backend dan memperdalam cybersecurity." data-en="Currently, I’m focusing on backend and deepening my cybersecurity skills.">Saat ini aku fokus ngulik backend dan memperdalam cybersecurity.</p>
+      <!-- Group kiri: perkenalan + CTA + stats -->
+      <div class="hero-left">
+        <!-- Teks perkenalan -->
+        <div class="hero-content reveal">
+          <div class="terminal-head">/home/Fallsec</div>
+          <p class="eyebrow typing" data-typing data-id="Welcome!" data-en="Welcome!">Welcome!</p>
+          <h1 data-id="Hello, I&#39;m Faiq Naufal Majid" data-en="Hello, I&#39;m Faiq Naufal Majid">Hello, I&#39;m Faiq Naufal Majid</h1>
+          <p class="lead" data-id="Saat ini aku fokus ngulik backend dan memperdalam cybersecurity." data-en="Currently, I’m focusing on backend and deepening my cybersecurity skills.">Saat ini aku fokus ngulik backend dan memperdalam cybersecurity.</p>
+        </div>
+        <!-- CTA + statistik singkat -->
+        <div class="hero-actions reveal">
+          <div class="hero-cta">
+            <a class="btn primary" href="#project" data-id="Lihat Project" data-en="View Project">Lihat Project</a>
+            <a class="btn ghost" href="https://linktr.ee/faiqnaufall.id" target="_blank" rel="noreferrer" data-id="Hubungi" data-en="Contact">Hubungi</a>
+          </div>
+          <div class="quick-stats">
+            <div>
+              <span class="stat">01</span>
+              <span class="label" data-id="Project aktif" data-en="Active project">Project aktif</span>
+            </div>
+            <div>
+              <span class="stat">Junior</span>
+              <span class="label" data-id="Cybersec &amp; backend" data-en="Cybersec &amp; backend">Cybersec & backend</span>
+            </div>
+            <div>
+              <span class="stat">Ready</span>
+              <span class="label" data-id="For collaboration" data-en="For collaboration">For collaboration</span>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Foto hero -->
       <div class="hero-media reveal">
         <img src="assets/Foto2.png" alt="Foto aktivitas neotech" />
         <div class="scanline"></div>
-      </div>
-      <!-- CTA + statistik singkat -->
-      <div class="hero-actions reveal">
-        <div class="hero-cta">
-          <a class="btn primary" href="#project" data-id="Lihat Project" data-en="View Project">Lihat Project</a>
-          <a class="btn ghost" href="https://linktr.ee/faiqnaufall.id" target="_blank" rel="noreferrer" data-id="Hubungi" data-en="Contact">Hubungi</a>
-        </div>
-        <div class="quick-stats">
-          <div>
-            <span class="stat">01</span>
-            <span class="label" data-id="Project aktif" data-en="Active project">Project aktif</span>
-          </div>
-          <div>
-            <span class="stat">Junior</span>
-            <span class="label" data-id="Cybersec &amp; backend" data-en="Cybersec &amp; backend">Cybersec & backend</span>
-          </div>
-          <div>
-            <span class="stat">Ready</span>
-            <span class="label" data-id="For collaboration" data-en="For collaboration">For collaboration</span>
-          </div>
-        </div>
       </div>
     </section>
 
