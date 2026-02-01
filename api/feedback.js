@@ -1,22 +1,28 @@
+// Handler serverless untuk feedback (Vercel)
 export default async function handler(req, res) {
+  // Hanya terima POST
   if (req.method !== "POST") {
     return res.status(405).send("Method Not Allowed");
   }
 
+  // Ambil data dari body
   const name = String(req.body?.name || "").trim();
   const email = String(req.body?.email || "").trim();
   const message = String(req.body?.message || "").trim();
 
+  // Validasi input
   if (!name || !email || !message) {
     return res.status(400).send("Semua field wajib diisi.");
   }
 
+  // Ambil konfigurasi Telegram dari env
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {
     return res.status(500).send("Telegram belum dikonfigurasi.");
   }
 
+  // Format pesan
   const text = [
     "📩 Feedback Baru",
     `Nama: ${name}`,

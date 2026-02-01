@@ -1,5 +1,7 @@
+/* Import font utama */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
 
+/* Variabel tema utama */
 :root {
   --bg: #05080d;
   --bg-2: #0b121b;
@@ -12,16 +14,19 @@
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
 }
 
+/* Reset dasar */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Perilaku global */
 html {
   scroll-behavior: smooth;
 }
 
+/* Body dan tampilan dasar */
 body {
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
   color: var(--text);
@@ -32,11 +37,13 @@ body {
   cursor: none;
 }
 
+/* Link */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Gambar */
 img {
   max-width: 100%;
   display: block;
@@ -84,6 +91,7 @@ body::after {
   z-index: 0;
 }
 
+/* Header dan navigasi */
 .site-header {
   position: sticky;
   top: 0;
@@ -98,6 +106,7 @@ body::after {
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+/* Brand/logo */
 .logo {
   font-family: "JetBrains Mono", monospace;
   font-weight: 700;
@@ -120,6 +129,7 @@ body::after {
   image-rendering: auto;
 }
 
+/* Menu navigasi */
 .nav {
   display: flex;
   gap: 24px;
@@ -135,6 +145,7 @@ body::after {
   color: var(--accent);
 }
 
+/* Tombol menu mobile */
 .nav-toggle {
   display: none;
   background: transparent;
@@ -155,6 +166,7 @@ body::after {
   gap: 8px;
 }
 
+/* Tombol aksi kecil (toggle) */
 .action-btn {
   border: 1px solid var(--stroke);
   background: rgba(11, 17, 26, 0.7);
@@ -227,6 +239,7 @@ section {
   padding: 80px 6vw;
 }
 
+/* HERO */
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -300,6 +313,7 @@ section {
   grid-column: 1;
 }
 
+/* Tombol utama */
 .btn {
   padding: 12px 24px;
   border-radius: 10px;
@@ -472,6 +486,7 @@ section {
   text-align: center;
 }
 
+/* RIWAYAT (pendidikan & pengalaman) */
 .journey-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -560,6 +575,7 @@ section {
   color: var(--muted);
   font-size: 13px;
 }
+/* PROJECT */
 .project-card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -613,6 +629,7 @@ section {
   flex-wrap: wrap;
 }
 
+/* SERTIFIKAT */
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -712,12 +729,15 @@ body.theme-light .cert-scroll::-webkit-scrollbar-thumb {
 
 @media (min-width: 901px) {
   .cert-scroll {
-    justify-content: center;
+    justify-content: flex-start;
     padding-left: 0;
     padding-right: 0;
     scroll-padding-left: 0;
     scroll-padding-right: 0;
     gap: 10px;
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
   }
 
   .cert-scroll .cert-card {
@@ -752,6 +772,38 @@ body.theme-light .cert-scroll::-webkit-scrollbar-thumb {
   margin-top: 10px;
 }
 
+.cert-controls {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cert-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+body.theme-light .cert-btn {
+  background: #fff;
+}
+
 .cert-dots .dot {
   width: 6px;
   height: 6px;
@@ -782,6 +834,23 @@ body.theme-light .cert-dots .dot.is-active {
   align-self: flex-start;
 }
 
+.cert-card--mtcna {
+  padding: 12px;
+}
+
+.cert-card--mtcna .cert-image-contain {
+  height: auto;
+  max-height: 380px;
+}
+
+@media (min-width: 901px) {
+  .cert-card--mtcna {
+    min-width: 520px;
+    max-width: 520px;
+    padding: 14px;
+  }
+}
+
 .cert-cover {
   background: linear-gradient(135deg, rgba(29, 224, 200, 0.2), rgba(49, 162, 255, 0.25));
   border-radius: 12px;
@@ -800,16 +869,42 @@ body.theme-light .cert-dots .dot.is-active {
   margin-bottom: 10px;
 }
 
-.cert-image-contain {
-  height: auto;
-  max-height: 240px;
+.cert-group + .cert-group .cert-image {
+  height: 220px;
   object-fit: contain;
-  background: rgba(11, 17, 26, 0.35);
-  padding: 8px;
+  background: transparent;
+}
+
+.cert-image-contain {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background: transparent;
+  padding: 0;
+}
+
+@media (max-width: 720px) {
+  .cert-scroll {
+    gap: 12px;
+  }
+
+  .cert-scroll .cert-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .cert-image-contain {
+    height: 220px;
+  }
 }
 
 .cert-title {
   font-weight: 600;
+}
+
+.cert-group + .cert-group .cert-title,
+.cert-group + .cert-group .cert-year {
+  text-align: center;
 }
 
 .cert-title-center {
@@ -821,6 +916,7 @@ body.theme-light .cert-dots .dot.is-active {
   color: var(--muted);
 }
 
+/* SKILLS */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -933,6 +1029,7 @@ body.theme-light .cert-dots .dot.is-active {
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
 }
 
+/* Kursor custom */
 .cursor-dot,
 .cursor-ring {
   position: fixed;
@@ -1138,6 +1235,7 @@ body.theme-light .skill-chip {
   border-color: rgba(15, 23, 42, 0.18);
 }
 
+/* FEEDBACK */
 .feedback-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1311,6 +1409,7 @@ body.theme-light .social-btn {
   color: #ef4444;
 }
 
+/* CONNECT (terminal sosial) */
 .connect-card {
   display: flex;
   justify-content: space-between;
@@ -1335,6 +1434,7 @@ body.theme-light .social-btn {
   font-size: 13px;
 }
 
+/* Tombol scroll */
 .scroll-top {
   position: fixed;
   bottom: 24px;
@@ -1429,6 +1529,7 @@ body.theme-light .btn.ghost {
   transform: translateY(0);
 }
 
+/* Responsif */
 @media (max-width: 860px) {
   .nav {
     position: fixed;
@@ -1461,6 +1562,7 @@ body.theme-light .btn.ghost {
   }
 }
 
+/* Tema light */
 body.theme-light {
   --bg: #f5f7fb;
   --bg-2: #e9eef6;

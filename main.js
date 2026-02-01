@@ -1,3 +1,4 @@
+// Ambil elemen utama dari DOM
 const nav = document.querySelector(".nav");
 const toggle = document.querySelector(".nav-toggle");
 const themeToggle = document.getElementById("themeToggle");
@@ -11,6 +12,7 @@ const feedbackForm = document.querySelector(".feedback-form");
 const formStatus = document.querySelector(".form-status");
 const certGroups = document.querySelectorAll(".cert-group");
 
+// Toggle menu di mobile
 if (toggle && nav) {
   toggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("open");
@@ -18,6 +20,7 @@ if (toggle && nav) {
   });
 }
 
+// Auto close menu setelah klik link (mobile)
 if (nav && toggle) {
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
@@ -27,11 +30,13 @@ if (nav && toggle) {
   });
 }
 
+// Node teks yang bisa diganti bahasa
 const textNodes = document.querySelectorAll("[data-id],[data-en]");
 const placeholderNodes = document.querySelectorAll(
   "[data-id-placeholder],[data-en-placeholder]"
 );
 
+// Ganti bahasa untuk teks dan placeholder
 const applyLanguage = (lang) => {
   textNodes.forEach((el) => {
     if (el.hasAttribute("data-typing")) {
@@ -55,11 +60,13 @@ const applyLanguage = (lang) => {
   });
 };
 
+// Efek mengetik untuk teks "Welcome!"
 const typingTimers = new WeakMap();
 const typingSpeed = 90;
 const typingDelay = 200;
 const typingLoopDelay = 1600;
 
+// Mulai animasi mengetik berdasarkan bahasa
 const startTyping = (lang) => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -104,6 +111,7 @@ const startTyping = (lang) => {
   });
 };
 
+// Simpan dan terapkan tema (light/dark)
 const setTheme = (mode) => {
   document.body.classList.toggle("theme-light", mode === "light");
   if (themeToggle) {
@@ -115,6 +123,7 @@ const setTheme = (mode) => {
   localStorage.setItem("theme", mode);
 };
 
+// Simpan dan terapkan bahasa (ID/EN)
 const setLanguage = (lang) => {
   applyLanguage(lang);
   startTyping(lang);
@@ -124,6 +133,7 @@ const setLanguage = (lang) => {
   });
 };
 
+// Ambil preferensi dari localStorage
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   setTheme(savedTheme);
@@ -136,6 +146,7 @@ if (savedLang) {
   setLanguage("id");
 }
 
+// Event toggle tema
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
     const isLight = document.body.classList.contains("theme-light");
@@ -143,12 +154,14 @@ if (themeToggle) {
   });
 }
 
+// Event toggle bahasa
 langButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     setLanguage(btn.dataset.lang);
   });
 });
 
+// Tombol scroll ke atas
 if (scrollTopBtn) {
   const toggleScrollBtn = () => {
     if (window.scrollY > 300) {
@@ -166,6 +179,7 @@ if (scrollTopBtn) {
   });
 }
 
+// Tombol scroll ke section berikutnya
 if (scrollDownBtn) {
   const sections = Array.from(document.querySelectorAll("section"));
 
@@ -190,6 +204,7 @@ if (scrollDownBtn) {
   });
 }
 
+// Submit feedback ke backend
 if (feedbackForm && formStatus) {
   feedbackForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -224,6 +239,7 @@ if (feedbackForm && formStatus) {
   });
 }
 
+// Carousel sertifikat + indikator dot
 if (certGroups.length) {
   const updateDots = (track, dots) => {
     const cards = track.querySelectorAll(".cert-card");
@@ -333,7 +349,9 @@ if (certGroups.length) {
       const trackWidth = track.clientWidth;
       const cardWidth = card.getBoundingClientRect().width;
       const offset = card.offsetLeft - (trackWidth - cardWidth) / 2;
-      track.scrollTo({ left: offset, behavior: "smooth" });
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const clamped = Math.max(0, Math.min(maxScroll, offset));
+      track.scrollTo({ left: clamped, behavior: "smooth" });
     };
 
     const scrollByCard = (direction) => {
@@ -371,6 +389,7 @@ if (certGroups.length) {
   });
 }
 
+// Animasi reveal saat elemen masuk viewport
 const reveals = document.querySelectorAll(".reveal");
 const tappables = document.querySelectorAll(
   ".btn, .icon-card, .project-card, .cert-card, .about-card, .feedback-form, .connect-card"
@@ -398,6 +417,7 @@ if ("IntersectionObserver" in window) {
   reveals.forEach((el) => el.classList.add("is-visible"));
 }
 
+// Efek tap/click untuk elemen interaktif
 tappables.forEach((el) => {
   const addTap = () => el.classList.add("tap-animate");
   const removeTap = () => el.classList.remove("tap-animate");
@@ -410,6 +430,7 @@ tappables.forEach((el) => {
   el.addEventListener("touchcancel", removeTap);
 });
 
+// Posisikan kursor custom
 const setCursorPosition = (x, y) => {
   if (!cursorDot || !cursorRing) return;
   cursorDot.style.left = `${x}px`;
@@ -418,6 +439,7 @@ const setCursorPosition = (x, y) => {
   cursorRing.style.top = `${y}px`;
 };
 
+// Kursor custom (desktop)
 if (cursorDot && cursorRing) {
   document.body.classList.add("cursor-visible");
 

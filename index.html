@@ -7,15 +7,19 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Lapisan dekorasi latar -->
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
   <div class="bg-grid"></div>
 
+  <!-- Header tetap: brand + navigasi + toggle -->
   <header class="site-header">
+    <!-- Brand: avatar + nama -->
     <div class="logo">
       <img class="logo-avatar" src="assets/Fotoprofil.png" alt="Avatar neotech" />
       <span>Faiq Naufal Majid</span>
     </div>
+    <!-- Navigasi utama -->
     <nav class="nav">
       <a href="#project" data-id="Project" data-en="Projects">Project</a>
       <a href="#cert" data-id="Sertifikat" data-en="Certificates">Sertifikat</a>
@@ -23,6 +27,7 @@
       <a href="#feedback" data-id="Feedback" data-en="Feedback">Feedback</a>
       <a href="#connect" data-id="Sosmed" data-en="Socials">Sosmed</a>
     </nav>
+    <!-- Toggle tema + bahasa -->
     <div class="header-actions">
       <button class="action-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
         <span class="sr-only">Toggle theme</span>
@@ -39,21 +44,26 @@
         <button class="action-btn" data-lang="en" type="button">EN</button>
       </div>
     </div>
+    <!-- Tombol menu untuk mobile -->
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
   </header>
 
   <main>
+    <!-- HERO: perkenalan + foto + CTA -->
     <section class="hero" id="top">
+      <!-- Teks perkenalan -->
       <div class="hero-content reveal">
         <div class="terminal-head">/home/Fallsec</div>
         <p class="eyebrow typing" data-typing data-id="Welcome!" data-en="Welcome!">Welcome!</p>
         <h1 data-id="Hello, I&#39;m Faiq Naufal Majid" data-en="Hello, I&#39;m Faiq Naufal Majid">Hello, I&#39;m Faiq Naufal Majid</h1>
         <p class="lead" data-id="Saat ini aku fokus ngulik backend dan memperdalam cybersecurity." data-en="Currently, I’m focusing on backend and deepening my cybersecurity skills.">Saat ini aku fokus ngulik backend dan memperdalam cybersecurity.</p>
       </div>
+      <!-- Foto hero -->
       <div class="hero-media reveal">
         <img src="assets/Foto2.png" alt="Foto aktivitas neotech" />
         <div class="scanline"></div>
       </div>
+      <!-- CTA + statistik singkat -->
       <div class="hero-actions reveal">
         <div class="hero-cta">
           <a class="btn primary" href="#project" data-id="Lihat Project" data-en="View Project">Lihat Project</a>
@@ -76,6 +86,7 @@
       </div>
     </section>
 
+    <!-- ABOUT: profil singkat + tag skill -->
     <section class="about reveal" id="about">
       <div class="about-text">
         <h2 data-id="Faiq Naufal Majid — Profil Singkat" data-en="Faiq Naufal Majid — Short Profile">Faiq Naufal Majid — Profil Singkat</h2>
@@ -111,6 +122,7 @@
       </div>
     </section>
 
+    <!-- RIWAYAT: pendidikan + pengalaman -->
     <section class="journey reveal" id="journey">
       <div class="section-head">
         <h2 data-id="Riwayat Pendidikan &amp; Pengalaman" data-en="Education &amp; Experience">Riwayat Pendidikan & Pengalaman</h2>
@@ -163,6 +175,7 @@
       </div>
     </section>
 
+    <!-- PROJECT: highlight project utama -->
     <section class="project reveal" id="project">
       <div class="section-head">
         <h2 data-id="Project" data-en="Projects">Project</h2>
@@ -188,15 +201,17 @@
       </div>
     </section>
 
+    <!-- SERTIFIKAT: fisik + e-sertifikat -->
     <section class="cert reveal" id="cert">
       <div class="section-head">
         <h2 data-id="Sertifikat" data-en="Certificates">Sertifikat</h2>
         <p data-id="Dokumentasi sertifikat dan e-sertifikat." data-en="Certificate and e-certificate documentation.">Dokumentasi sertifikat dan e-sertifikat.</p>
       </div>
+      <!-- Grup sertifikat fisik -->
       <div class="cert-group">
         <h3 class="cert-heading" data-id="Sertifikat" data-en="Certificates">Sertifikat</h3>
         <div class="cert-grid cert-scroll">
-          <div class="cert-card">
+          <div class="cert-card cert-card--mtcna">
             <img class="cert-image cert-image-contain" src="assets/mtcna.jpg" alt="Sertifikat MTCNA" />
             <span class="cert-title cert-title-center" data-id="MTCNA" data-en="MTCNA">MTCNA</span>
             <span class="cert-year cert-title-center">2024-2028</span>
@@ -210,6 +225,7 @@
           <button class="cert-btn next" type="button" aria-label="Sertifikat berikutnya">›</button>
         </div>
       </div>
+      <!-- Grup e-sertifikat -->
       <div class="cert-group">
         <h3 class="cert-heading" data-id="E-Sertifikat" data-en="E-Certificates">E-Sertifikat</h3>
         <div class="cert-grid cert-scroll">
@@ -241,6 +257,7 @@
       </div>
     </section>
 
+    <!-- SKILLS: bahasa, tools, skill utama -->
     <section class="skills reveal" id="skills">
       <div class="section-head">
         <h2 data-id="Keahlian &amp; Tools" data-en="Skills &amp; Tools">Keahlian & Tools</h2>
@@ -276,9 +293,9 @@
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
                   <span>JavaScript</span>
                 </div>
-                <span class="level-value">80%</span>
+                <span class="level-value">50%</span>
               </div>
-              <div class="level-bar"><span style="width: 80%"></span></div>
+              <div class="level-bar"><span style="width: 50%"></span></div>
             </div>
             <div class="level-item">
               <div class="level-head">
@@ -286,9 +303,9 @@
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
                   <span>TypeScript</span>
                 </div>
-                <span class="level-value">70%</span>
+                <span class="level-value">20%</span>
               </div>
-              <div class="level-bar"><span style="width: 70%"></span></div>
+              <div class="level-bar"><span style="width: 20%"></span></div>
             </div>
             <div class="level-item">
               <div class="level-head">
@@ -296,9 +313,9 @@
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
                   <span>Node.js</span>
                 </div>
-                <span class="level-value">75%</span>
+                <span class="level-value">35%</span>
               </div>
-              <div class="level-bar"><span style="width: 75%"></span></div>
+              <div class="level-bar"><span style="width: 35%"></span></div>
             </div>
             <div class="level-item">
               <div class="level-head">
@@ -306,9 +323,9 @@
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
                   <span>Python</span>
                 </div>
-                <span class="level-value">78%</span>
+                <span class="level-value">48%</span>
               </div>
-              <div class="level-bar"><span style="width: 78%"></span></div>
+              <div class="level-bar"><span style="width: 48%"></span></div>
             </div>
             <div class="level-item">
               <div class="level-head">
@@ -316,9 +333,9 @@
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
                   <span>PHP</span>
                 </div>
-                <span class="level-value">72%</span>
+                <span class="level-value">52%</span>
               </div>
-              <div class="level-bar"><span style="width: 72%"></span></div>
+              <div class="level-bar"><span style="width: 52%"></span></div>
             </div>
             <div class="level-item">
               <div class="level-head">
@@ -381,12 +398,14 @@
       </div>
     </section>
 
+    <!-- FEEDBACK: form kirim pesan -->
     <section class="feedback reveal" id="feedback">
       <div class="section-head">
         <h2 data-id="Feedback" data-en="Feedback">Feedback</h2>
         <p data-id="Punya saran atau kritik? Tulis di sini ya." data-en="Have suggestions or feedback? Write them here.">Punya saran atau kritik? Tulis di sini ya.</p>
       </div>
       <div class="feedback-wrap">
+        <!-- Form feedback, dikirim ke /api/feedback -->
         <form class="feedback-form" action="/api/feedback" method="post">
           <div class="form-grid">
             <label>
@@ -405,6 +424,7 @@
           <button class="btn primary" type="submit" data-id="Kirim Feedback" data-en="Send Feedback">Kirim Feedback</button>
           <p class="form-status" aria-live="polite"></p>
         </form>
+        <!-- Kartu sosmed bergaya terminal -->
         <div class="connect-card" id="connect">
           <div>
             <h2 data-id="Mutual Sosmed?" data-en="Connect?">Mutual Sosmed?</h2>
@@ -423,16 +443,20 @@
     </section>
   </main>
 
+  <!-- Footer sederhana -->
   <footer class="site-footer">
     <span data-id="© 2026 FallSec. My Portofolio." data-en="© 2026 FallSec. My Portfolio.">© 2026 FallSec. My Portofolio.</span>
   </footer>
 
+  <!-- Tombol bantu scroll -->
   <button class="scroll-top" aria-label="Scroll to top">↑</button>
   <button class="scroll-down" aria-label="Scroll to next section">↓</button>
 
+  <!-- Kursor custom (khusus desktop) -->
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
 
+  <!-- Script utama interaksi -->
   <script src="main.js"></script>
 </body>
 </html>
