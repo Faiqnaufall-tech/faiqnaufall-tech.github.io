@@ -1562,6 +1562,13 @@ body.theme-light .btn.ghost {
   }
 }
 
+@media (max-width: 860px) {
+  body.theme-light .nav {
+    background: rgba(248, 250, 252, 0.96);
+    border-color: rgba(15, 23, 42, 0.12);
+  }
+}
+
 /* Tema light */
 body.theme-light {
   --bg: #f5f7fb;
