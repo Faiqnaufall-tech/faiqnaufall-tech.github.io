@@ -114,11 +114,13 @@ const startTyping = (lang) => {
 
 // Simpan dan terapkan tema (light/dark)
 const setTheme = (mode) => {
-  document.body.classList.toggle("theme-light", mode === "light");
+  const isLight = mode === "light";
+  document.body.classList.toggle("theme-light", isLight);
+  document.documentElement.classList.toggle("theme-light", isLight);
   if (themeToggle) {
     themeToggle.setAttribute(
       "aria-label",
-      mode === "light" ? "Switch to dark theme" : "Switch to light theme"
+      isLight ? "Switch to dark theme" : "Switch to light theme"
     );
   }
   localStorage.setItem("theme", mode);

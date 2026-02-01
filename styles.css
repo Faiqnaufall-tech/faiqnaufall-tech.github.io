@@ -24,7 +24,7 @@
 /* Perilaku global */
 html {
   scroll-behavior: smooth;
-  background: var(--bg);
+  background: #05080d;
 }
 
 /* Body dan tampilan dasar */
@@ -1721,6 +1721,10 @@ body.theme-light .btn.ghost {
 }
 
 /* Tema light */
+html.theme-light {
+  background: #f5f7fb;
+}
+
 body.theme-light {
   --bg: #f5f7fb;
   --bg-2: #e9eef6;
