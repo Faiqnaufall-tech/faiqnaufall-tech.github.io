@@ -24,6 +24,7 @@
 /* Perilaku global */
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 /* Body dan tampilan dasar */
@@ -31,6 +32,7 @@ body {
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
   color: var(--text);
   background: radial-gradient(circle at 30% 10%, #0e1620 0%, var(--bg) 55%);
+  background-color: var(--bg);
   min-height: 100vh;
   line-height: 1.6;
   letter-spacing: 0.2px;
@@ -1814,7 +1816,7 @@ body.theme-light .quick-stats div {
   z-index: 9999;
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at 30% 10%, #0e1620 0%, #05080d 60%);
+  background: radial-gradient(circle at 30% 10%, var(--bg-2) 0%, var(--bg) 60%);
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
