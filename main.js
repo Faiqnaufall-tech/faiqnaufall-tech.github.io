@@ -12,6 +12,7 @@ const feedbackForm = document.querySelector(".feedback-form");
 const formStatus = document.querySelector(".form-status");
 const certGroups = document.querySelectorAll(".cert-group");
 const pageLoader = document.querySelector(".page-loader");
+const heroLottie = document.getElementById("heroLottie");
 
 // Toggle menu di mobile
 if (toggle && nav) {
@@ -28,6 +29,20 @@ if (nav && toggle) {
       nav.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
     });
+  });
+}
+
+// Inisialisasi animasi Lottie untuk hero
+if (heroLottie && window.lottie) {
+  window.lottie.loadAnimation({
+    container: heroLottie,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/foto2hero.json",
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid meet",
+    },
   });
 }
 

@@ -1,28 +1,45 @@
-// Handler serverless untuk feedback (Vercel)
 export default async function handler(req, res) {
-  // Hanya terima POST
-  if (req.method !== "POST") {
-    return res.status(405).send("Method Not Allowed");
+  const allowedOrigins = process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim()).filter(Boolean)
+    : [];
+
+  const origin = req.headers.origin || "";
+  if (allowedOrigins.length) {
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+    }
+  } else {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+  }
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    res.status(204).end();
+    return;
   }
 
-  // Ambil data dari body
+  if (req.method !== "POST") {
+    res.status(405).send("Method not allowed.");
+    return;
+  }
+
   const name = String(req.body?.name || "").trim();
   const email = String(req.body?.email || "").trim();
   const message = String(req.body?.message || "").trim();
 
-  // Validasi input
   if (!name || !email || !message) {
-    return res.status(400).send("Semua field wajib diisi.");
+    res.status(400).send("Semua field wajib diisi.");
+    return;
   }
 
-  // Ambil konfigurasi Telegram dari env
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {
-    return res.status(500).send("Telegram belum dikonfigurasi.");
+    res.status(500).send("Telegram belum dikonfigurasi.");
+    return;
   }
 
-  // Format pesan
   const text = [
     "📩 Feedback Baru",
     `Nama: ${name}`,
@@ -41,12 +58,13 @@ export default async function handler(req, res) {
     if (!response.ok) {
       const errText = await response.text();
       console.error(errText);
-      return res.status(500).send("Gagal mengirim feedback.");
+      res.status(500).send("Gagal mengirim feedback.");
+      return;
     }
 
-    return res.status(200).send("Feedback terkirim.");
+    res.status(200).send("Feedback terkirim.");
   } catch (err) {
     console.error(err);
-    return res.status(500).send("Gagal mengirim feedback.");
+    res.status(500).send("Gagal mengirim feedback.");
   }
 }
